@@ -4,8 +4,9 @@ let vidaSuperman = 100;
 const MIN_POWER = 5;
 const MAX_POWER = 12;
 
+//Arrow function para chequear si están vivos los personajes
 const ambosSiguenVivos = () => vidaGoku > 0 && vidaSuperman > 0
-
+//Calcula el golpe segun el random entre el mayor y menor
 const calcularGolpe = () => Math.round(Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER)
 
 const gokuSigueVivo = () => vidaGoku > 0;
@@ -31,7 +32,7 @@ while (ambosSiguenVivos()) {
     console.log(`Goku queda en ${vidaGoku} de vida`)
   }
 }
-
+//chequea si está vivo goku, en caso que no sigue vivo superman
 if (gokuSigueVivo()){
   console.log(`Goku ganó la pelea. Su vida es de: ${vidaGoku}`)
 } else {
