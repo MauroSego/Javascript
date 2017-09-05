@@ -1,8 +1,10 @@
 const Punto = {
+  //datos del punto
   init: function init(x, y){
     this.x = x
     this.y = y
   },
+  //metodos del punto
   moverEnX: function (x){
     this.x += x
   },
