@@ -16,7 +16,7 @@ function suma(...numeros){
 //usando la función map (trabaja sobre cada elemento)
 const dobles = (...numeros) => numeros.map(numero => numero * 2);
 
-const pares = (...numeros) => numeros.filter(numero => return numero % 2 == 0)
+const pares = (...numeros) => numeros.filter(numero => numero % 2 == 0)
 
 suma(4, 8, 12, 9213, 7);
 
