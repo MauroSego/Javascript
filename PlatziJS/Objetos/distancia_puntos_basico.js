@@ -1,5 +1,14 @@
-const p1 = {x: 3, y: 0}
-const p2 = {x: 5, y: 2}
+const p1 = {
+	x: 3, 
+	y: 0,
+	//Funcion para mover el valor de x
+	moverEnX: function(x){this.x +=x}
+}
+const p2 = {
+	x: 5, 
+	y: 2,
+	moverEnX: function(x){this.x +=x}
+}
 
 function distancia(p1, p2){
   const x = p1.x - p2.x

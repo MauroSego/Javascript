@@ -19,13 +19,13 @@ Punto.prototype.distancia = function distancia(p) {
 
 
 //Así se crean los objetos con el prototipo de la función
-const p2 = new Punto(3, 0)
 const p1 = new Punto(0, 4)
+const p2 = new Punto(3, 0)
 
 
 
 console.log(p1.distancia(p2));
-console.log(p2.distancia(p1))
+console.log(p2.distancia(p1));
 p1.moverEnX(10);
 console.log(p1.distancia(p2));
 p2.moverEnY(-4);
