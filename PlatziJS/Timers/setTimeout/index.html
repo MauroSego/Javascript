@@ -7,13 +7,22 @@
 <body>
 	<div>
 		<h1></h1>
+		<button id="cancel-button">Cancel</button>
 	</div>
 <script type="text/javascript">
 	//setTimeout(que se va a hacer, en cuanto tiempo)
 	//setTimeout(()=>{console.log('Pasaron 5 segundos')}, 5000)
-	setTimeout(()=>{
+	const $cancelButton = document.getElementById('cancel-button')
+	
+
+	const timeout = setTimeout(()=>{
 		alert('Pasaron 5 segundos')
 	}, 5000)
+	
+	$cancelButton.addEventListener('click', ()=> {
+		console.log('click')
+		clearTimeout(timeout);
+	})
 </script>
 </body>
 </html>
