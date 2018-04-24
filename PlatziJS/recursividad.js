@@ -1,17 +1,20 @@
-function fibonacci(num){
+let contadorMemo = 1
+function fibonacciMemo(num, memoria = {}){
+	contadorMemo++
+	if(memoria[num])return memoria[num]
 	if(num == 1) return 0
 	if(num == 2) return 1
 
-	return fibonacci(num - 1) + fibonacci(num - 2);
+	return memoria[num] = fibonacciMemo(num - 1) + fibonacciMemo(num - 2);
 }
 
-fibonacci(1)
-fibonacci(2)
-fibonacci(3)
-fibonacci(4)
-fibonacci(5)
-fibonacci(6)
-fibonacci(7)
-fibonacci(8)
-fibonacci(9)
-fibonacci(10)
+let contadorRec = 1
+function fibonacciRecursivo(num, memoria = {}){
+	contadorRec++
+	if(memoria[num])return memoria[num]
+	if(num == 1) return 0
+	if(num == 2) return 1
+
+	return memoria[num] = fibonacciRecursivo(num - 1) + 
+	fibonacciRecursivo(num - 2);
+}
