@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contador tiempo</title>
+</head>
+<body>
+<h3 id="contador"></h3>
+<script type="text/javascript">
+
+var contador = setInterval(function(){
+	const fechaObj1 = new Date(2018, 9, 3);
+	const hoy = new Date()
+
+	const tiempoFalta = fechaObj1 - hoy;
+
+	const dias = Math.floor(tiempoFalta / (1000*60*60*24))
+	const horas = Math.floor((tiempoFalta % (1000*60*60*24)) /(1000*60*60))
+	const minutos = Math.floor((tiempoFalta % (1000*60*60)) /(1000*60))
+	const seconds = Math.floor((tiempoFalta % (1000 * 60))/1000)
+
+	document.getElementById('contador').innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
+}, 1000)
+</script>
+</body>
+</html>
