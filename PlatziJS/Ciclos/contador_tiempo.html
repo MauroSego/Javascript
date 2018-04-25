@@ -18,8 +18,24 @@ var contador = setInterval(function(){
 	const minutos = Math.floor((tiempoFalta % (1000*60*60)) /(1000*60))
 	const seconds = Math.floor((tiempoFalta % (1000 * 60))/1000)
 
-	document.getElementById('contador').innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
+	function mostrarTiempo(){
+		document.getElementById('contador').innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
+	}
+	mostrarTiempo();
 }, 1000)
+
+const timer = {
+	init(anio, mes, dia){
+		this.anio = anio
+		this.mes = mes
+		this.dia = dia
+		const fechaobj = new Date(anio, mes, dia);
+		const hoy = new Date();
+	},
+	
+
+}
+
 </script>
 </body>
 </html>

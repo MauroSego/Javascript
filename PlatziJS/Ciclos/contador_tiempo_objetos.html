@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contador tiempo</title>
+</head>
+<body>
+<h3 id="contador"></h3>
+
+<input type="date" name="" id="selecFecha">
+<input type="button" id="btn" name="Cargar"></input>
+
+<script type="text/javascript">
+
+//  const hoy = new Date();
+
+  const Timer = {
+    init(anio, mes, dia){
+      this.anio = anio
+      this.mes = mes
+      this.dia = dia
+    },
+    fechaObjetivo: function fechaobj(){
+      this.fechaobj = new Date(this.anio, this.mes, this.dia);
+    },
+    tiempoFaltante: function(){
+      const hoy = new Date()
+      const tiempoFalta =  this.fechaobj - hoy
+
+      const dias = Math.floor(tiempoFalta/(1000*60*60*24))
+      const horas = Math.floor((tiempoFalta % (1000*60*60*24))/(1000*60*60))
+      const minutos = Math.floor((tiempoFalta % (1000*60*60))/(1000*60))
+      const seconds = Math.floor((tiempoFalta % (1000 * 60))/1000)
+
+      document.getElementById('contador').innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
+    }
+  }
+
+  const timer1 = Object.create(Timer);
+  timer1.init(2018, 9, 3);
+  timer1.fechaObjetivo();
+  
+  var intervalo = setInterval(function(){
+    timer1.tiempoFaltante();
+  })
+
+
+
+</script>
+</body>
+</html>
