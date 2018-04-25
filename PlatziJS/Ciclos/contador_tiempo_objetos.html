@@ -21,6 +21,7 @@
     },
     fechaObjetivo: function fechaobj(){
       this.fechaobj = new Date(this.anio, this.mes, this.dia);
+      console.log(this.fechaobj);
     },
     tiempoFaltante: function(){
       const hoy = new Date()
@@ -35,26 +36,32 @@
     }
   }
 
-  const timer1 = Object.create(Timer);
-  timer1.init(2018, 9, 3);
-  timer1.fechaObjetivo();
   
-  var intervalo = setInterval(function(){
-    timer1.tiempoFaltante();
-  }, 1000)
 
   
   const BTN_CARGA = document.getElementById('btn');
   BTN_CARGA.addEventListener('click', function(){
+    //
     fecha = document.getElementById("selecFecha").value;
     let fechaPartes = fecha.split('-');
     let anio = fechaPartes[0];
-    let mes = fechaPartes[1];
+    let mes = fechaPartes[1]-1;
     let dia = fechaPartes[2];
 
-    
+    //Creacion del timer 
+    const timer1 = Object.create(Timer);
+    timer1.init(anio, mes, dia);
+    timer1.fechaObjetivo();
+    console.log(anio +" "+ mes+" "+dia)
+
+    dispararTimer(timer1)
   })
 
+  function dispararTimer(t){
+    var intervalo = setInterval(function(){
+      t.tiempoFaltante();
+    }, 1000)
+  }
 
 
 
