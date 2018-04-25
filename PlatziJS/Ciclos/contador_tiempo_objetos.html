@@ -7,7 +7,7 @@
 <h3 id="contador"></h3>
 
 <input type="date" name="" id="selecFecha">
-<input type="button" id="btn" name="Cargar"></input>
+<input type="button" id="btn" value="Cargar"></input>
 
 <script type="text/javascript">
 
@@ -41,7 +41,20 @@
   
   var intervalo = setInterval(function(){
     timer1.tiempoFaltante();
+  }, 1000)
+
+  
+  const BTN_CARGA = document.getElementById('btn');
+  BTN_CARGA.addEventListener('click', function(){
+    fecha = document.getElementById("selecFecha").value;
+    let fechaPartes = fecha.split('-');
+    let anio = fechaPartes[0];
+    let mes = fechaPartes[1];
+    let dia = fechaPartes[2];
+
+    
   })
+
 
 
 
