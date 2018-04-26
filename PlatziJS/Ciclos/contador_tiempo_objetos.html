@@ -23,7 +23,8 @@
       this.fechaobj = new Date(this.anio, this.mes, this.dia);
       console.log(this.fechaobj);
     },
-    tiempoFaltante: function(){
+    tiempoFaltante: function(t, idContador){
+      //calculo de distancia de fechas 
       const hoy = new Date()
       const tiempoFalta =  this.fechaobj - hoy
 
@@ -33,14 +34,19 @@
       const seconds = Math.floor((tiempoFalta % (1000 * 60))/1000)
 
 
-      document.getElementById('contador').innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
+      document.getElementById(idContador).innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
     }
   }
   
   const CAJA = document.getElementById('caja')
   const BTN_CARGA = document.getElementById('btn');
+  let contadorClicks = 0;
+
+  //Escucha dl evento click para tomar fechas y crear cada timer. 
   BTN_CARGA.addEventListener('click', function(){
-    //
+    
+    contadorClicks++;
+
     fecha = document.getElementById("selecFecha").value;
     let fechaPartes = fecha.split('-');
     let anio = fechaPartes[0];
@@ -51,17 +57,23 @@
     const timer1 = Object.create(Timer);
     timer1.init(anio, mes, dia);
     timer1.fechaObjetivo();
-    console.log(anio +" "+ mes+" "+dia)
 
 
-    CAJA.innerHTML = '<h3 id="contador"><h3>';
+    let idContador = "contador" + contadorClicks
+    console.log(idContador);
 
-    dispararTimer(timer1)
+    var elem = document.createElement('div');
+    elem.setAttribute("id", idContador);
+    caja.appendChild(elem)
+
+
+    dispararTimer(timer1, idContador)
   })
 
-  function dispararTimer(t){
+  //disparador de timer
+  function dispararTimer(t, idContador){
     var intervalo = setInterval(function(){
-      t.tiempoFaltante();
+      t.tiempoFaltante(t, idContador);
     }, 1000)
   }
 
