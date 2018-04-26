@@ -4,7 +4,7 @@
   <title>Contador tiempo</title>
 </head>
 <body>
-<h3 id="contador"></h3>
+  <div id="caja"></div>
 
 <input type="date" name="" id="selecFecha">
 <input type="button" id="btn" value="Cargar"></input>
@@ -32,13 +32,12 @@
       const minutos = Math.floor((tiempoFalta % (1000*60*60))/(1000*60))
       const seconds = Math.floor((tiempoFalta % (1000 * 60))/1000)
 
+
       document.getElementById('contador').innerHTML = dias+"d. " + horas+ "hs. " + minutos + "min " + seconds +"s";
     }
   }
-
   
-
-  
+  const CAJA = document.getElementById('caja')
   const BTN_CARGA = document.getElementById('btn');
   BTN_CARGA.addEventListener('click', function(){
     //
@@ -53,6 +52,9 @@
     timer1.init(anio, mes, dia);
     timer1.fechaObjetivo();
     console.log(anio +" "+ mes+" "+dia)
+
+
+    CAJA.innerHTML = '<h3 id="contador"><h3>';
 
     dispararTimer(timer1)
   })
